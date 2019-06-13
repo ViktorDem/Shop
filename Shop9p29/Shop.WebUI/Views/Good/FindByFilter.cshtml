@@ -1,0 +1,15 @@
+﻿@model Shop.WebUI.Models.VmFindByFilter
+
+
+        @foreach (var item in Model.Photos)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <hr />
+                <img src="@item.PhotoPath" height="200" />
+                <hr />
+                <a href="#" class="btn btn-danger btn-sm btndel-photo"
+                   data-photoid="@item.GoodId">
+                   @item.GoodName
+                </a>
+            </div>
+        }

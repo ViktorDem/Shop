@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Shop.BLL.Models.GoodDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GoodName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManufacturerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.GoodName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.ManufacturerName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+      
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.GoodId }, new { @class = "btn btn-sm btn-primary" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.GoodId }, new { @class = "btn btn-sm btn-danger" })
+            @Html.ActionLink("Photo", "PhotoList", new { id = item.GoodId }, new { @class = "btn btn-sm btn-primary" })
+        </td>
+    </tr>
+}
+
+</table>
